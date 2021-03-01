@@ -23,7 +23,7 @@ public class TodoViewModel extends AndroidViewModel {
         mAllTodos = mRepository.getAllTodos();
     }
 
-    LiveData<List<Todo>> getAllWords() { return mAllTodos; }
+    public LiveData<List<Todo>> getAllTodos() { return mAllTodos; }
 
     public void insert(Todo todo) { mRepository.insert(todo); }
 }

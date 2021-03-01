@@ -1,5 +1,7 @@
 package cz.dahor.todolistapp.adapter;
 
+import android.content.DialogInterface;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,12 @@ public class TodoListAdapter extends ListAdapter<Todo, TodoViewHolder> {
     public void onBindViewHolder(TodoViewHolder holder, int position) {
         Todo current = getItem(position);
         holder.bind(current.getTitle());
+//TODO
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            }
+//        });
     }
 
     public static class WordDiff extends DiffUtil.ItemCallback<Todo> {

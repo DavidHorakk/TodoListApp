@@ -26,5 +26,6 @@ public class TodoViewHolder extends RecyclerView.ViewHolder {
                 .inflate(R.layout.recyclerview_item, parent, false);
         return new TodoViewHolder(view);
     }
+
 }
 

@@ -18,4 +18,7 @@ public interface TodoDao {
 
     @Query("SELECT * FROM todo_table ORDER BY id ASC")
     LiveData<List<Todo>> readAllData();
+
+//    @Query("DROP todo_Table")
+//    void deleteAllData();
 }

@@ -11,14 +11,29 @@ public class Todo {
     private int id;
     private String title;
     private String description;
-    private Date created;
+//    private Date created;
 
 
-    public Todo(String title, String description, Date created) {
+
+    public Todo() {
+    }
+
+    public Todo(String title) {
+        this.title = title;
+    }
+
+    public Todo(String title, String description) {
         this.title = title;
         this.description = description;
-        this.created = created;
     }
+
+//    public Todo(String title, String description, Date created) {
+//        this.title = title;
+//        this.description = description;
+//        this.created = created;
+//    }
+
+
 
     public int getId() {
         return id;
@@ -44,11 +59,11 @@ public class Todo {
         this.description = description;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+//    public Date getCreated() {
+//        return created;
+//    }
+//
+//    public void setCreated(Date created) {
+//        this.created = created;
+//    }
 }
