@@ -1,6 +1,9 @@
 package cz.dahor.todolistapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, ADD_WORD_ACTIVITY_REQUEST_CODE);
         });
 
-
         recyclerView = findViewById(R.id.recyclerview);
-
         final TodoListAdapter adapter = new TodoListAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 //            adapter.setTodos(todos);
 //        });
         todoViewModel.getAllTodos().observe(this, adapter::setTodos);
+
+
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override

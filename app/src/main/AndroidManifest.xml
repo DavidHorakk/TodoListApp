@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TodoListApp">
-        <activity android:name=".EditTask"></activity>
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".EditTask" />
         <activity android:name=".AddTask" />
         <activity android:name=".MainActivity" />
         <activity android:name=".WelcomeActivity">
