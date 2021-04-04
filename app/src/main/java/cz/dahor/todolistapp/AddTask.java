@@ -86,7 +86,6 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
             diffZ = Math.abs(lastZ - currentZ);
 
             if(diffX > threshold && diffY > threshold && diffZ > threshold){
-                Log.e("test","threshold bigger");
                 mEditTitle.setText("");
                 mEditDescription.setText("");
             }
