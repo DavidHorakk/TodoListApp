@@ -86,7 +86,9 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
             diffZ = Math.abs(lastZ - currentZ);
 
             if(diffX > threshold && diffY > threshold && diffZ > threshold){
-
+                Log.e("test","threshold bigger");
+                mEditTitle.setText("");
+                mEditDescription.setText("");
             }
 
         }
@@ -101,5 +103,22 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(isAccelerometerAvailable){
+            sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(isAccelerometerAvailable){
+            sensorManager.unregisterListener(this);
+        }
     }
 }
