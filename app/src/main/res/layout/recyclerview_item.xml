@@ -24,8 +24,17 @@
             style="@style/word_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fadingEdgeLength="15dp"
+            android:fadingEdgeLength="12dp"
             android:textColor="#B0959595" />
+
+        <TextView
+            android:id="@+id/textViewPriority"
+            style="@style/word_title"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:maxLength="15"
+            android:fadingEdgeLength="12dp"
+            android:textColor="#B0959595"            />
 
     </LinearLayout>
 

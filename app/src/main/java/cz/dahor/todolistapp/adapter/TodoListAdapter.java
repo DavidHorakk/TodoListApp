@@ -1,14 +1,10 @@
 package cz.dahor.todolistapp.adapter;
 
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -40,6 +36,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
         Todo currentTodo = todos.get(position);
         holder.textViewTitle.setText(currentTodo.getTitle());
         holder.textViewDescription.setText(currentTodo.getDescription());
+        holder.textViewPriority.setText(String.valueOf(currentTodo.getPriority()));
     }
 
     @Override
@@ -52,26 +49,9 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
         notifyDataSetChanged();
     }
 
-
-
     public Todo getTodoAt(int position){
         return todos.get(position);
     }
-
-
-
-//    static class TodoDiff extends DiffUtil.ItemCallback<Todo> {
-//
-//        @Override
-//        public boolean areItemsTheSame(@NonNull Todo oldItem, @NonNull Todo newItem) {
-//            return oldItem == newItem;
-//        }
-//
-//        @Override
-//        public boolean areContentsTheSame(@NonNull Todo oldItem, @NonNull Todo newItem) {
-//            return oldItem.getTitle().equals(newItem.getTitle());
-//        }
-//    }
 
 class TodoViewHolder extends RecyclerView.ViewHolder{
     private TextView textViewTitle, textViewDescription, textViewPriority;
@@ -80,7 +60,7 @@ class TodoViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         textViewTitle = itemView.findViewById(R.id.textViewTitle);
         textViewDescription=itemView.findViewById(R.id.textViewDescription);
-//        wordItemView = itemView.findViewById(R.id.textView);
+        textViewPriority=itemView.findViewById(R.id.textViewPriority);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

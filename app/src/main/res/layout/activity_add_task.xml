@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:" />
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
@@ -14,6 +22,14 @@
         android:inputType="textAutoComplete"
         android:layout_margin="16dp"
         android:textSize="18sp" />
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description:" />
     <EditText
         android:id="@+id/edit_description"
         android:layout_width="match_parent"
@@ -25,13 +41,68 @@
         android:layout_margin="16dp"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/txtCreated"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task created:"
+        />
+    <TextView
+        android:id="@+id/edit_created"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="18dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Date"
+        android:inputType="textAutoComplete"
+        android:layout_margin="16dp"
+
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/txtFinished"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task must be completed till:"
+        />
+    <TextView
+        android:id="@+id/edit_finished"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="18dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Date"
+        android:inputType="textAutoComplete"
+        android:layout_margin="16dp"
+
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_add_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/teal_200"
+        android:text="Add Location"
+        android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location:" />
+
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:background="@color/teal_200"
         android:text="Add task"
-        android:layout_margin="16dp"
         android:textColor="@color/white" />
 
 </LinearLayout>

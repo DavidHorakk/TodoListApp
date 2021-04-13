@@ -1,29 +1,18 @@
 package cz.dahor.todolistapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
 
 import cz.dahor.todolistapp.adapter.TodoListAdapter;
 import cz.dahor.todolistapp.model.Todo;
@@ -82,8 +71,12 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(EditTask.EXTRA_ID, todo.getId());
                 intent.putExtra(EditTask.EXTRA_TITLE, todo.getTitle());
                 intent.putExtra(EditTask.EXTRA_DESCRIPTION, todo.getDescription());
+                intent.putExtra(EditTask.EXTRA_PRIORITY, todo.getPriority());
+                intent.putExtra(EditTask.EXTRA_LONGITUDE, todo.getLongitude());
+                intent.putExtra(EditTask.EXTRA_LATITUDE, todo.getLatitude());
+                intent.putExtra(EditTask.EXTRA_CREATED, todo.getCreated());
+                intent.putExtra(EditTask.EXTRA_FINISHED, todo.getFinished());
                 startActivityForResult(intent, EDIT_TODO_ACTIVITY_REQUEST_CODE);
-
             }
         });
 
@@ -95,12 +88,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == ADD_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            String title, description;
+            String title, description, longitude, latitude, created, finished;
+            int priority;
             title = extras.getString("EXTRA_TITLE");
             description = extras.getString("EXTRA_DESCRIPTION");
+            priority = extras.getInt("EXTRA_PRIORITY");
+            longitude = extras.getString("EXTRA_LONGITUDE");
+            latitude = extras.getString("EXTRA_LATITUDE");
+            created = extras.getString("EXTRA_CREATED");
+            finished = extras.getString("EXTRA_FINISHED");
+
             Todo todo;
-            if(description != null){
-                todo = new Todo(title, description);
+            if(description != null || priority != 0 || longitude != null || latitude != null || created != null || finished != null){
+                todo = new Todo(title, description, created, finished, longitude, latitude, priority);
             }else{
             todo = new Todo(title);
             }
@@ -111,15 +111,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Note cannot be updated", Toast.LENGTH_SHORT).show();
                 return;
             }
-            String title, description;
+            String title, description, longitude, latitude, created, finished;
+            int priority;
             title = data.getStringExtra(EditTask.EXTRA_TITLE);
             description = data.getStringExtra(EditTask.EXTRA_DESCRIPTION);
-
-            Todo todo = new Todo(title, description);
+            priority = data.getIntExtra(EditTask.EXTRA_PRIORITY, 1);
+            longitude = data.getStringExtra(EditTask.EXTRA_LONGITUDE);
+            latitude = data.getStringExtra(EditTask.EXTRA_LATITUDE);
+            created = data.getStringExtra(EditTask.EXTRA_CREATED);
+            finished = data.getStringExtra(EditTask.EXTRA_FINISHED);
+            Todo todo = new Todo(title, description, created, finished, longitude, latitude, priority);
             todo.setId(id);
             todoViewModel.update(todo);
-
-
 
 
         } else {

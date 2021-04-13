@@ -24,6 +24,12 @@
             android:text="SubTitle"
             android:textSize="20sp">
         </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Priority"
+            android:textSize="20sp">
+        </TextView>
     </LinearLayout>
 
 </LinearLayout>

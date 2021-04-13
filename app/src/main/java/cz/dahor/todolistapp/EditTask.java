@@ -1,7 +1,5 @@
 package cz.dahor.todolistapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -14,11 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class EditTask extends AppCompatActivity implements SensorEventListener {
 
     public static final String EXTRA_ID = "cz.dahor.todolistapp.EXTRA_ID";
     public static final String EXTRA_TITLE ="cz.dahor.todolistapp.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION ="cz.dahor.todolistapp.EXTRA_DESCRIPTION";
+    public static final String EXTRA_PRIORITY = "cz.dahor.todolistapp.EXTRA_PRIORITY";
+    public static final String EXTRA_LONGITUDE = "cz.dahor.todolistapp.EXTRA_LONGITUDE";
+    public static final String EXTRA_LATITUDE = "cz.dahor.todolistapp.EXTRA_LATITUDE";
+    public static final String EXTRA_CREATED = "cz.dahor.todolistapp.EXTRA_CREATED";
+    public static final String EXTRA_FINISHED = "cz.dahor.todolistapp.EXTRA_FINISHED";
     private EditText editTextTitle, editTextDescription;
 
     private SensorManager sensorManager;
@@ -125,6 +130,7 @@ public class EditTask extends AppCompatActivity implements SensorEventListener {
         Intent data = new Intent();
         data.putExtra(EXTRA_TITLE, title);
         data.putExtra(EXTRA_DESCRIPTION, description);
+        //TODO přidat vlastní atributy a dodělat to podle addTask
         int id = getIntent().getIntExtra(EXTRA_ID, -1);
         if(id !=-1){
             data.putExtra(EXTRA_ID, id);

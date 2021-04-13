@@ -3,15 +3,17 @@ package cz.dahor.todolistapp.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
 @Entity (tableName = "todo_table")
 public class Todo {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String description;
-//    private Date created;
+    private String created;
+    private String finished;
+    private String longitude;
+    private String latitude;
+    private int priority;
 
 
 
@@ -27,7 +29,25 @@ public class Todo {
         this.description = description;
     }
 
-//    public Todo(String title, String description, Date created) {
+    public Todo(String title, String description, String created, String finished, int priority) {
+        this.title = title;
+        this.description = description;
+        this.created = created;
+        this.finished = finished;
+        this.priority = priority;
+    }
+
+    public Todo(String title, String description, String created, String finished, String longitude, String latitude, int priority) {
+        this.title = title;
+        this.description = description;
+        this.created = created;
+        this.finished = finished;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.priority = priority;
+    }
+
+    //    public Todo(String title, String description, Date created) {
 //        this.title = title;
 //        this.description = description;
 //        this.created = created;
@@ -59,11 +79,43 @@ public class Todo {
         this.description = description;
     }
 
-//    public Date getCreated() {
-//        return created;
-//    }
-//
-//    public void setCreated(Date created) {
-//        this.created = created;
-//    }
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getFinished() {
+        return finished;
+    }
+
+    public void setFinished(String finished) {
+        this.finished = finished;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
 }
