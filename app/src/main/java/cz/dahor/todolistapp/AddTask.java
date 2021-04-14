@@ -102,6 +102,7 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month+1;
                 finished = dayOfMonth+"."+month+"."+year;
                 txtEditFinished.setText(dayOfMonth+"."+month+"."+year);
             }

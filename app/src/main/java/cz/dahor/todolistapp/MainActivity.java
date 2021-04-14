@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
             todo.setId(id);
             todoViewModel.update(todo);
 
-
         } else {
             Toast.makeText(
                     getApplicationContext(),
@@ -135,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
                     "Cannot insert",
                     Toast.LENGTH_LONG).show();
         }
-
     }
 
     @Override
@@ -153,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.menu_about:
-                //TODO ABOUT
+                startActivity(new Intent(this, AboutActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

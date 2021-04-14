@@ -16,7 +16,7 @@
             android:id="@+id/textViewTitle"
             style="@style/word_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:maxLength="20" />
 
         <TextView
@@ -31,10 +31,10 @@
             android:id="@+id/textViewPriority"
             style="@style/word_title"
             android:layout_width="210dp"
-            android:layout_height="50dp"
-            android:maxLength="15"
+            android:layout_height="40dp"
             android:fadingEdgeLength="12dp"
-            android:textColor="#B0959595"            />
+            android:maxLength="15"
+            android:textColor="#B0959595" />
 
     </LinearLayout>
 
