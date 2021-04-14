@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +58,7 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
     private FusedLocationProviderClient fusedLocationProviderClient;
     private final int ACCESS_COARSE_LOCATION_REQUEST_CODE = 0;
     private TextView txtLocation, txtEditCreated, txtEditFinished;
+    private NumberPicker numPickerPriority;
 
 
     @Override
@@ -71,6 +73,11 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
         txtLocation = findViewById(R.id.txtLocation);
         txtEditCreated = findViewById(R.id.edit_created);
         txtEditFinished = findViewById(R.id.edit_finished);
+        numPickerPriority = findViewById(R.id.numPickerPriority);
+
+        numPickerPriority.setMinValue(1);
+        numPickerPriority.setMaxValue(10);
+        numPickerPriority.setValue(1);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         created = Utilities.getToday();
@@ -129,6 +136,7 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
             } else {
                  title = mEditTitle.getText().toString();
                  description = mEditDescription.getText().toString();
+                 priority = numPickerPriority.getValue();
                 Bundle extras = new Bundle();
                 extras.putString("EXTRA_TITLE",title);
 
