@@ -193,6 +193,9 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
             if(diffX > threshold && diffY > threshold && diffZ > threshold){
                 mEditTitle.setText("");
                 mEditDescription.setText("");
+                txtEditFinished.setText("Date");
+                numPickerPriority.setValue(1);
+                txtLocation.setText("Location:");
             }
 
         }

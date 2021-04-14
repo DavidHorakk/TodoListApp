@@ -179,6 +179,9 @@ public class EditTask extends AppCompatActivity implements SensorEventListener {
             if(diffX > threshold && diffY > threshold && diffZ > threshold){
                 editTextTitle.setText("");
                 editTextDescription.setText("");
+                txtEditFinished.setText("Date");
+                numPickerPriority.setValue(1);
+                txtLocation.setText("Location:");
             }
 
         }
