@@ -45,4 +45,9 @@ private LiveData<List<Todo>> mAllTodos;
                         mTodoDao.update(todo);
                 });
         }
+        void deleteAllData(){
+                TodoDatabase.databaseWriteExecutor.execute(() -> {
+                        mTodoDao.deleteAllData();
+                });
+        }
 }

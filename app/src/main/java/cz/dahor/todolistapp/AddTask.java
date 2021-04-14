@@ -1,6 +1,7 @@
 package cz.dahor.todolistapp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -59,7 +60,6 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
     private final int ACCESS_COARSE_LOCATION_REQUEST_CODE = 0;
     private TextView txtLocation, txtEditCreated, txtEditFinished;
     private NumberPicker numPickerPriority;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -147,13 +147,12 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
                  if(longitude != null && latitude != null){
                      extras.putString("EXTRA_LONGITUDE",longitude);
                      extras.putString("EXTRA_LATITUDE",latitude);
-
                  }
                  if(!created.isEmpty()){
                      extras.putString("EXTRA_CREATED", created);
                  }
                 if(!finished.isEmpty()){
-                    extras.putString("EXTRA_CREATED", finished);
+                    extras.putString("EXTRA_FINISHED", finished);
                 }
                 if(priority != 0){
                     extras.putInt("EXTRA_PRIORITY", priority);
@@ -226,6 +225,7 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private void getLocation() {
         fusedLocationProviderClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -233,8 +233,7 @@ public class AddTask extends AppCompatActivity implements SensorEventListener {
                     public void onSuccess(Location location) {
                         longitude = String.valueOf(location.getLongitude());
                         latitude = String.valueOf(location.getLatitude());
-                        txtLocation.setText("Location: latitude="+location.getLatitude()+" longtitude="+location.getLongitude());
-                        //TODO uložit hodnoty do databáze
+                        txtLocation.setText("Location: latitude="+latitude+" longtitude="+longitude);
                         Log.e("location", "location ok " +longitude+ "," +latitude);
                     }
                 }).addOnFailureListener(this, new OnFailureListener() {

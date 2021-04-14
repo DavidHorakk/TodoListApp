@@ -8,9 +8,6 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import cz.dahor.todolistapp.model.Todo;
-import cz.dahor.todolistapp.model.TodoRepository;
-
 public class TodoViewModel extends AndroidViewModel {
 
     private TodoRepository mRepository;
@@ -33,5 +30,9 @@ public class TodoViewModel extends AndroidViewModel {
 
     public void update(Todo todo) {
         mRepository.update(todo);
+    }
+
+    public void deleteAllData(){
+        mRepository.deleteAllData();
     }
 }
